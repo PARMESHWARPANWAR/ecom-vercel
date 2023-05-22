@@ -4,7 +4,7 @@ const express = require("express");
 
 const app = express();
 
-// const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary");
 // const connectDatabase = require("./backend/config/database");
 
 // // Handling Uncaught Exception
@@ -16,7 +16,6 @@ const app = express();
 
 // // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  console.log("call this to check the environment variable");
   require("dotenv").config({ path: "backend/config/config.env" });
 }
 
@@ -27,11 +26,11 @@ app.get("/", (req, res) => {
   res.send("Hey this is my API running 🥳");
 });
 
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is working on http://localhost:${process.env.PORT}`);
