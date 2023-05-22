@@ -17,6 +17,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 // Connecting to database
 connectDatabase();
 
+app.get("/", (req, res) => {
+  res.send("Hey this is my API running 🥳");
+});
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
