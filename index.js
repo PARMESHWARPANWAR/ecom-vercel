@@ -1,7 +1,7 @@
 const app = require("./backend/app");
 
 const cloudinary = require("cloudinary");
-// const connectDatabase = require("./backend/config/database");
+const connectDatabase = require("./backend/config/database");
 
 // // Handling Uncaught Exception
 // process.on("uncaughtException", (err) => {
@@ -16,11 +16,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 }
 
 // // Connecting to database
-// connectDatabase();
-
-app.get("/", (req, res) => {
-  res.send("Hey this is my API running 🥳");
-});
+connectDatabase();
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
