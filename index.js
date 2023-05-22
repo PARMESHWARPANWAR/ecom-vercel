@@ -1,4 +1,4 @@
-// const app = require("./backend/app");
+const app = require("./backend/app");
 
 // const express = require("express");
 
